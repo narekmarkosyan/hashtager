@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Hashtager Examples</title>
+
+    <script type="text/javascript" src="../libs/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript"
+            src="../libs/prettify/run_prettify.js?autoload=true&amp;skin=desert&amp;lang=css"></script>
+    <script type="text/javascript" src="../jquery.hashtager.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#ddd").hashtager({
+                'template': '<a href="http://twitter.com/?tag={ANCHOR}" class="{CLASS}" title="{ANCHOR}">#{ANCHOR}</a>'
+            });
+
+            console.log("aaa #vbbb #cc dasdas #123".hashtager());
+        });
+    </script>
+
+    <style type="text/css">
+        *{
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            font-family: Arial;
+        }
+
+        a,
+        a:visited{
+            color: #55f;
+        }
+
+        .prettyprint{
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        table{
+            width: 100%;
+            border: 1px solid #333;
+            border-collapse: collapse;
+        }
+
+        table > thead > tr{
+            background: #333;
+            color: #fff;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        table td{
+            border: 1px solid #333;
+            padding: 10px;
+        }
+
+        table > tbody > tr:nth-child(even){
+            background: #eee;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <h1>jQuery Hashtager Examples</h1>
+
+    <section>
+        <p>
+            <strong>jQuery Hashtager</strong> is a simple plugin for marking up hashtags in content or geting list of
+            hashtags from string.
+        </p>
+
+        <p>
+            You can find the newest version of plugin in <a href="https://github.com/narekmarkosyan/hashtager"
+                                                            target="_blank">jQuery Hashtager Github page</a>.
+        </p>
+    </section>
+
+    <section>
+        <h2>Usage</h2>
+
+        <p>For simple usage just call <strong>.hashtager()</strong> on some selector.</p>
+
+<?prettify lang=html linenums=true?>
+<pre class="prettyprint">
+&lt;div class="selector"&gt;Everybody #love good #hashtags&lt;/div&gt;
+</pre>
+
+<?prettify lang=js linenums=true?>
+<pre class="prettyprint">
+$('.selection').hashtager();
+</pre>
+
+        <p>In return we will have</p>
+<?prettify lang=html linenums=true?>
+<pre class="prettyprint">
+&lt;div class="selector"&gt;Everybody &lt;strong class="hashtager"&gt;#love&lt;/strong&gt; good &lt;strong class="hashtager"&gt;#hashtags&lt;/strong&gt;&lt;/div&gt;
+</pre>
+        <h3>Settings</h3>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Default</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>template</td>
+                <td>Template to replace hashtags</td>
+                <td>&lt;strong class="{CLASS}"&gt;#{ANCHOR}&lt;/strong&gt;</td>
+            </tr>
+            <tr>
+                <td>numericTemplate</td>
+                <td>Custom template for numeric hashtags. If field is empty will be used main template</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>class</td>
+                <td><code>{CLASS}</code> will be replaced with this field value</td>
+                <td>hashtager</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Also you can call <code>.hashtager()</code> on string and get array of hashtags on return</p>
+
+        <?prettify lang=js linenums=true?>
+<pre class="prettyprint">
+var hashtagsList = "Everybody #love good #hashtags".hashtager();
+</pre>
+
+        <p>Variable <code>hashtagList</code> will contain <code>["love", "hashtags"]</code></p>
+
+
+        <h3>Settings</h3>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Default</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>type</td>
+                <td>What type of hashtags return.
+                    <ul>
+                        <li>
+                            <strong>word</strong> - only alphanumeric hashtags, starting with letter
+                        </li>
+                        <li>
+                            <strong>num</strong> - only numeric hashtags
+                        </li>
+                        <li>
+                            <strong>all</strong> - all type of hashtags
+                        </li>
+                    </ul>
+                </td>
+                <td>all</td>
+            </tr>
+            <tr>
+                <td>withSign</td>
+                <td>Return matches with hash sign or not</td>
+                <td>false</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+<div id="ddd">dasdasdas #dsasdas #dfsd sdfsdf #123</div>
+
+</body>
+</html>

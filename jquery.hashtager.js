@@ -51,7 +51,7 @@
         var matches = [];
         // Defaults
         var settings = $.extend({
-            'type': 'total', // word, num, total
+            'type': 'all', // word, num, all
             'withSign': false
         }, options);
 
