@@ -1,3 +1,9 @@
+/**
+ * jQuery Hashtager
+ * Author: Narek Markosyan < narek.markosyan@yahoo.com >
+ * GitHub: https://github.com/narekmarkosyan/hashtager
+ */
+
 (function( $ ) {
 
     var wordPattern = /\B#([a-zA-Z\u0400-\u04ff][a-zA-Z\d\u0400-\u04ff]*)/ig;
