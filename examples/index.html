@@ -20,48 +20,96 @@
     </script>
 
     <style type="text/css">
-        *{
+        * {
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
             box-sizing: border-box;
-            font-family: Arial;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         a,
-        a:visited{
+        a:visited {
             color: #55f;
         }
 
-        .prettyprint{
+        .prettyprint {
             padding-top: 10px;
             padding-bottom: 10px;
         }
 
-        table{
+        table {
             width: 100%;
             border: 1px solid #333;
             border-collapse: collapse;
         }
 
-        table > thead > tr{
+        table > thead > tr {
             background: #333;
             color: #fff;
             height: 40px;
             line-height: 40px;
         }
 
-        table td{
+        table td {
             border: 1px solid #333;
             padding: 10px;
         }
 
-        table > tbody > tr:nth-child(even){
+        table > tbody > tr:nth-child(even) {
             background: #eee;
+        }
+
+        code {
+            background: #f5f5f5;
+            display: inline-block;
+            padding: 0 3px;
+            font-family: Courier, Monaco, monospace;
+        }
+
+        .try-it{
+            position: absolute;
+            display: flex;
+            right: 10px;
+            top: 10px;
+            z-index: 1;
+            width: 70px;
+            height: 70px;
+            background: #006666;
+            -webkit-border-radius:100%;
+            -moz-border-radius:100%;
+            border-radius:100%;
+            flex-direction: row;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .try-it:hover{
+            background: #007777;
+        }
+
+        .try-it > span{
+            display: block;
+            width: 100%;
+            color: #fff;
+        }
+
+        .try-it > span > span{
+            display: block;
+            text-align: center;
+            color: #fff;
         }
 
     </style>
 </head>
 <body>
+
+<a href="https://jsfiddle.net/narekmarkosyan/5vz1fnh6/1/" target="_blank" class="try-it">
+    <span>
+        <span class="try">Try</span>
+        <span class="it">it!</span>
+    </span>
+</a>
 
 <div class="wrap">
     <h1>jQuery Hashtager Examples</h1>
@@ -74,27 +122,35 @@
 
         <p>
             You can find the newest version of plugin in <a href="https://github.com/narekmarkosyan/hashtager"
-                                                            target="_blank">jQuery Hashtager Github page</a>.
+                                                            target="_blank">jQuery Hashtager Github page</a> or <a href="https://github.com/narekmarkosyan/hashtager/archive/master.zip" target="_blank">download</a> the latest version.
         </p>
     </section>
 
     <section>
         <h2>Usage</h2>
 
-        <p>For simple usage just call <strong>.hashtager()</strong> on some selector.</p>
+        <p>For start include js file</p>
 
-<?prettify lang=html linenums=true?>
+
+        <?prettify lang=html linenums=true?>
+<pre class="prettyprint">
+&lt;script type="text/javascript" src="jquery.hashtager.js"&gt;&lt;/script&gt;
+</pre>
+
+        <p>For simple usage just call <code>.hashtager()</code> on some selector.</p>
+
+        <?prettify lang=html linenums=true?>
 <pre class="prettyprint">
 &lt;div class="selector"&gt;Everybody #love good #hashtags&lt;/div&gt;
 </pre>
 
-<?prettify lang=js linenums=true?>
+        <?prettify lang=js linenums=true?>
 <pre class="prettyprint">
-$('.selection').hashtager();
+$('.selector').hashtager();
 </pre>
 
         <p>In return we will have</p>
-<?prettify lang=html linenums=true?>
+        <?prettify lang=html linenums=true?>
 <pre class="prettyprint">
 &lt;div class="selector"&gt;Everybody &lt;strong class="hashtager"&gt;#love&lt;/strong&gt; good &lt;strong class="hashtager"&gt;#hashtags&lt;/strong&gt;&lt;/div&gt;
 </pre>
@@ -174,7 +230,5 @@ var hashtagsList = "Everybody #love good #hashtags".hashtager();
         </table>
     </section>
 </div>
-<div id="ddd">dasdasdas #dsasdas #dfsd sdfsdf #123</div>
-
 </body>
 </html>
